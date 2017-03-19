@@ -2,6 +2,7 @@
 
 samochod::samochod(float ciezar, int pojemnosc) {
 	this->ciezar = ciezar;
+	this->pojemnosc = pojemnosc;
 	this->moc = (pojemnosc * WSPOLCZYNNIK_MOCY);
 	this->kmnakg = this->moc / this->ciezar;
 	this->predkosc_maksymalna = this->kmnakg * WSPOLCZYNNK_PREDKOSCI;
@@ -31,10 +32,21 @@ void samochod::przyhamuj() {
 		cout << "juz osiagnieto predkosc minimalna\n";
 }
 
+void samochod::drukuj(char *strin, float masa)
+{
+	cout << strin << "[kg] to " << masa << "\n\n";
+}
+void samochod::drukuj(char *strin, int pojemnosc)
+{
+	cout << strin << "[ccm] to " << pojemnosc << "\n\n";
+}
+
 void samochod::pokaz_status()
 {
 	cout << "Otwarcie zaworu to  " << this->otwarcie_zaworu << "\npredkosc to " << this->predkosc_aktualna << "\n";
 	cout << "Pokonano " << this->pokonna_odleglosc / 1000 << " km\n\n";
+	this->drukuj("Pojemnosc", this->pojemnosc);
+	this->drukuj("Masa", this->ciezar);
 }
 void samochod::jedz()
 {

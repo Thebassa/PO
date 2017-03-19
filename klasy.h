@@ -47,4 +47,6 @@ private:
 	void dodaj_gazu();
 	void przyhamuj();
 	void pokaz_status();
+	void drukuj(char *strin, int masa);
+	void drukuj(char *strin, float pojemnosc);
 };
