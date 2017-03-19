@@ -18,7 +18,7 @@ using namespace std;
 
 class samochod {
 public:
-	void inicjalizacja(float ciezar, int pojemnosc);
+	samochod(float ciezar, int pojemnosc);
 	void jedz();
 
 private:
@@ -49,7 +49,7 @@ private:
 	void pokaz_status();
 };
 
-void samochod::inicjalizacja(float ciezar, int pojemnosc) {
+ samochod::samochod(float ciezar, int pojemnosc) {
 	this->ciezar = ciezar;
 	this->moc = (pojemnosc * WSPOLCZYNNIK_MOCY);
 	this->kmnakg = this->moc / this->ciezar;
@@ -107,8 +107,7 @@ void samochod::jedz()
 
 int main()
 {
-	samochod *cooper = new samochod;
-	cooper->inicjalizacja(CIEZAR, POJEMNOSC);
+	samochod *cooper = new samochod(CIEZAR, POJEMNOSC);
 	cooper->jedz();
 	cout << "GRATULACJE! Przejechano trase";
 	getchar();
