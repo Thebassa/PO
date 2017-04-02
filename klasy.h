@@ -16,10 +16,40 @@ using namespace std;
 #define STRZALKA_DOWN 80
 #define SPACJA 32
 
+class Str {
+public:
+	int dlugosc(char *wyraz);
+	char *adres;
+	int zapisanego_dlugosc();
+	Str();
+	void wpisz(char *wyraz);
+	void drukuj();
+	Str(char *napis);
+	char *sklejanie(char *napis1, char *napis2);
+	void doklej(char *napis);
+};
+
+class Kierowca {
+private:
+	Str imie;
+	Str nazwisko;
+	long long int pesel;
+public:
+	void drukuj();
+	void wpisz(Str a, Str b, long long int c) {
+		imie = a;
+		nazwisko = b;
+		pesel = c;
+	}
+	Kierowca() { cout << "Utworzono pustego kierowce dodaj jego imie i nazwisko metoda wpisz" << endl; }
+	Kierowca(Str a, Str b, long long int c) : imie(a), nazwisko(b), pesel(c) {}
+};
+
 class samochod {
 public:
-	samochod(float ciezar, int pojemnosc);
+	samochod(float ciezar, int pojemnosc, Kierowca kierowca);
 	void jedz();
+	Kierowca kierowca;
 
 private:
 	//
